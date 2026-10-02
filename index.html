@@ -32,7 +32,7 @@
             </div>
 
             <div class="btn-header" id="reservation">
-                <a class="btn" href="#">Réservé</a>
+                <a class="btn" href="#booking">Réserver</a>
             </div>
         </nav>
 
@@ -60,7 +60,7 @@
                         authentique d’un pays chaleureux et profondément vibrant !</p>
 
                     <div class="buttons">
-                        <a class="btn" href="Asset/Documents/Cameroun_note_pays.pdf" target="_blank">
+                        <a class="btn" href="Asset/Documents/liste-des-entreprises-du-cameroun-par-secteurs.pdf" target="_blank">
                             En savoir plus
                         </a> <button class="see-video" id="play-video">
                             <div class="video-bg">
@@ -72,7 +72,7 @@
                         </button>
                         <div id="video-container" style="display: none;">
                             <video id="my-video" controls>
-                                <source src="Asset/Le_Royaume_Enchanté_de_Paul_1er___Une_Satire_Politique(360p).mp4"
+                                <source src="Asset/Videos/Le_cameroun_limbe.mp4"
                                     type="video/mp4">
                                 Votre navigateur ne supporte pas la lecture de vidéos.
                             </video>
@@ -221,7 +221,7 @@
                                 35 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
                                 45 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
                                 25 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@
                                 48 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                                 42 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -303,7 +303,7 @@
                                 60 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -319,7 +319,7 @@
                                 38 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -335,7 +335,7 @@
                                 55 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -351,7 +351,7 @@
                                 58 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -367,7 +367,7 @@
                                 36 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -383,7 +383,7 @@
                                 44 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
@@ -399,35 +399,69 @@
                                 52 000 FCFA
                             </strong>
                         </span>
-                        <button>Réservez maintenant</button>
+                        <button type="button">Réservez maintenant</button>
                     </div>
                 </div>
             </div>
-
-            <!-- <template>
-                <div class="box image">
-                    <img loading="lazy" src="Asset/images/20.jpg" alt="site_a_visiter" class="img">
-                    <div class="description">
-                        <h2>Lorem, ipsum.</h2>
-                        <p class="rating">♥<i class="fa-solid fa-star"></i>4.5</p>
-                        <div class="button-description">
-                            <span>
-                                Pour
-                                <strong>
-                                    X 000 FCFA
-                                </strong>
-                            </span>
-                            <button>Réservez maintenant</button>
-                        </div>
-                    </div>
-                </div>
-            </template> -->
 
         </div>
 
         <div class="view-all">
             <button class="btn">Tout voir</button>
         </div>
+    </section>
+    <section class="booking-section" id="booking">
+        <h1 class="title">Préparez votre réservation</h1>
+        <p class="booking-intro">Quelques informations suffisent pour organiser votre découverte du Cameroun.</p>
+
+        <form class="booking-form" id="booking-form">
+            <div class="form-field">
+                <label for="booking-name">Nom complet</label>
+                <input type="text" id="booking-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+                <label for="booking-email">Adresse e-mail</label>
+                <input type="email" id="booking-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+                <label for="booking-phone">Téléphone</label>
+                <input type="tel" id="booking-phone" name="phone" autocomplete="tel" placeholder="Ex. +237 6 00 00 00 00">
+            </div>
+            <div class="form-field">
+                <label for="booking-destination">Destination</label>
+                <select id="booking-destination" name="destination" required>
+                    <option value="">Choisissez une destination</option>
+                    <option>Monument de Bastos</option>
+                    <option>Savane de Maroua</option>
+                    <option>Cacaoyère de l’Est</option>
+                    <option>Montagnes du Cameroun</option>
+                    <option>Vallée verte</option>
+                    <option>Forêt tropicale</option>
+                    <option>Côte paisible</option>
+                    <option>Parc national de la Bénoué</option>
+                    <option>Cascade enchantée</option>
+                    <option>Rivière paisible</option>
+                    <option>Culture vivante</option>
+                    <option>Village traditionnel</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="booking-date">Date souhaitée</label>
+                <input type="date" id="booking-date" name="date" required>
+            </div>
+            <div class="form-field">
+                <label for="booking-travelers">Nombre de voyageurs</label>
+                <input type="number" id="booking-travelers" name="travelers" min="1" max="20" value="1" required>
+            </div>
+            <div class="form-field form-field-wide">
+                <label for="booking-message">Message ou précision (facultatif)</label>
+                <textarea id="booking-message" name="message" rows="4" placeholder="Un besoin particulier pour votre séjour ?"></textarea>
+            </div>
+            <div class="form-field-wide">
+                <button class="btn booking-submit" type="submit">Envoyer ma demande</button>
+                <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
+            </div>
+        </form>
     </section>
     <section class="email-trip" id="reviews">
         <h1 class="title">Ne manquez aucune aventure !</h1>
@@ -448,11 +482,11 @@
     <div id="details">
         <div class="images">
             <img id="image-detail" src="" />
-        </div>
-        <div id="caracteristiques">
-            <h3 id="detail-title"></h3>
-            <hr>
-            <p id="text-desc"></p>
+            <div id="caracteristiques">
+                <h3 id="detail-title"></h3>
+                <hr>
+                <p id="text-desc"></p>
+            </div>
         </div>
 
         <span id="close-image">&times;</span>

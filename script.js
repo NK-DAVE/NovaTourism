@@ -25,7 +25,6 @@ let observer = null
 const activate = function (elem) {
     const id = elem.getAttribute('id')
     const anchor = document.querySelector(`a[href="#${id}"]`)
-    console.log(anchor);
 
     if (anchor === null) {
         return null
@@ -366,7 +365,11 @@ const detail = document.getElementById('details');
 const closeImage = document.getElementById('close-image');
 
 images.forEach(image => {
-    image.addEventListener('click', () => {
+    image.addEventListener('click', (event) => {
+        if (event.target.closest('button, a')) {
+            return
+        }
+
         const img = image.querySelector('.img').src
         const title = image.querySelector('.title_desc').textContent
         const desc = image.querySelector('.text_desc').textContent
@@ -378,11 +381,12 @@ images.forEach(image => {
         document.getElementById('text-desc').textContent = desc
     })
 })
-// Fermer l'image en grand
 
+// Fermer l'image en grand
 closeImage.addEventListener('click', () => {
     detail.style.display = 'none';
 });
+
 // Fermer l'image en grand en cliquant en dehors de l'image
 detail.addEventListener('click', (e) => {
     if (e.target === detail) {
@@ -400,8 +404,27 @@ deploy.addEventListener('click', () => {
 })
 
 
-document.querySelectorAll('.nav a').forEach(link => {
+document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function () {
         nav.classList.remove('nav_mobile')
     })
+})
+
+const bookingSection = document.getElementById('booking')
+const bookingDestination = document.getElementById('booking-destination')
+const bookingForm = document.getElementById('booking-form')
+const bookingStatus = document.getElementById('booking-status')
+
+document.querySelectorAll('.button-description button').forEach(button => {
+    button.addEventListener('click', () => {
+        const destination = button.closest('.box').querySelector('.title_desc').textContent.trim()
+        bookingDestination.value = destination
+        bookingSection.scrollIntoView({ behavior: 'smooth' })
+    })
+})
+
+bookingForm.addEventListener('submit', event => {
+    event.preventDefault()
+    bookingStatus.textContent = 'Votre demande est prête. Ce site de démonstration n’est pas encore relié à un service d’envoi.'
+    bookingForm.reset()
 })
