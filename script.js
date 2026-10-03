@@ -1,16 +1,17 @@
-document.getElementById("play-video").addEventListener("click", function () {
-    var videoContainer = document.getElementById("video-container");
+document.getElementById("play-video").addEventListener("click", function (event) {
+    const videoContainer = document.getElementById("video-container");
     videoContainer.style.display = "block";
-    var video = document.getElementById("my-video");
+    const video = document.getElementById("my-video");
+    event.stopPropagation()
     video.play();
 });
 
 // Fermer la vidéo en cliquant en dehors
-document.addEventListener("click", function (event) {
-    var videoContainer = document.getElementById("video-container");
-    if (event.target !== videoContainer && !videoContainer.contains(event.target) && event.target !== document.getElementById("play-video")) {
+document.addEventListener("click", function(event) {
+    const videoContainer = document.getElementById("video-container");
+    if (event.currentTarget !== videoContainer && !videoContainer.contains(event.target) && event.currentTarget !== document.getElementById("play-video")) {
         videoContainer.style.display = "none";
-        var video = document.getElementById("my-video");
+        const video = document.getElementById("my-video");
         video.pause();
     }
 });
