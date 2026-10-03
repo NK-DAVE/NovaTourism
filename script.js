@@ -423,9 +423,3 @@ document.querySelectorAll('.button-description button').forEach(button => {
         bookingSection.scrollIntoView({ behavior: 'smooth' })
     })
 })
-
-bookingForm.addEventListener('submit', event => {
-    event.preventDefault()
-    bookingStatus.textContent = 'Votre demande est prête. Ce site de démonstration n’est pas encore relié à un service d’envoi.'
-    bookingForm.reset()
-})
