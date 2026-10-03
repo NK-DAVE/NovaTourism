@@ -1,6 +1,7 @@
 :root {
     --primaryColor: #fff;
-    --secondColor: #f6D238;
+    /* --secondColor: #f6D238; */
+    --secondColor: #F8E050;
     --primaryColorText: #535353;
     --shadowDiv: 5px 5px 30px rgba(0, 0, 0, 0.1);
 }
@@ -561,7 +562,6 @@ button:active {
 }
 
 .input {
-    border: var(--primaryColor);
     box-shadow: var(--shadowDiv);
     height: fit-content;
     display: flex;
@@ -572,7 +572,6 @@ button:active {
 }
 
 .input input {
-    border: 1px solid #d8d8d8;
     border: 2px transparent solid;
     padding: 12px;
     padding-left: 20px;
