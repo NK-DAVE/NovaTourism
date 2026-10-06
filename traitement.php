@@ -38,15 +38,14 @@ try {
     }
     if(!preg_match('/^\+?[0-9]{8,15}$/', $tel)) {
         $erreurs[] ="Le numéro de téléphone n'est pas valide.";
-    }elseif (strpos($tel, '+237') === 0 && !preg_match('/^\+237[26][0-9]{8}$', $tel)) {
+    }elseif (strpos($tel, '+237') === 0 && !preg_match('/^\+237[26][0-9]{8}$/', $tel)) {
         $erreurs[] = "Le numéro Camerounais n'est pas valide (9 chiffres comment par 6 ou 2).";
     }
 
     //si la liste contient quelque choses afficher
     if (!empty($erreurs)) {
-        foreach ($erreurs as $erreur) {
-            echo $erreur . "<br>";
-        }
+        $message = urlEncode(implode(' ', $erreurs));
+        header('Location: index.html?reservation=invalide&erreurs=' . $message . '#booking');
         exit;
     }
     
@@ -61,8 +60,10 @@ try {
         ':msg' => $msg
     ]);
 
-    echo "Réservation enregistrée.";
+    header('Location: index.html?reservation=ok#booking');
+    exit;
 } catch (PDOException $e) {
     error_log($e->getMessage());
-    echo "Une erreur est survenue, merci de réessayer plus tard";
+    header('Location: index.html?reservation=erreur#booking');
+    exit;
 }

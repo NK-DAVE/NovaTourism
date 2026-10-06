@@ -520,6 +520,16 @@ button:active {
     color: var(--primaryColorText);
 }
 
+.send, .sendError{
+    opacity: 1;
+    color: green;
+    font-weight: 600;
+}
+
+.sendError{
+    color: red;
+}
+
 .box-list .box .description .button-description button:hover {
     background-color: var(--secondColor);
     color: black;

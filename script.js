@@ -423,3 +423,18 @@ document.querySelectorAll('.button-description button').forEach(button => {
         bookingSection.scrollIntoView({ behavior: 'smooth' })
     })
 })
+
+const params = new URLSearchParams(window.location.search)
+const resultat = params.get('reservation')
+if (resultat === 'ok') {
+    bookingStatus.classList.add('send')
+    bookingStatus.innerText = 'Merci ! Votre demande a bien été enregistrée, nous vous contacterons rapidement.'
+}else if(resultat === 'erreur'){
+    bookingStatus.innerText = 'Une erreur est survenue, merci de réessayer plus tard.'
+    bookingStatus.classList.add('sendError')
+}else if(resultat ==='invalide') {
+    bookingStatus.innerText = params.get('erreurs')
+    bookingStatus.classList.add('sendError')
+}
+//Netoyage et redirection de l'URL après l'extraction des information
+history.replaceState(null, '', window.location.pathname + '#booking')
