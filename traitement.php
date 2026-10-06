@@ -22,15 +22,25 @@ try {
     $nb = (int)($_POST['travelers'] ?? 1);
     $msg = trim($_POST['message'] ?? '');
 
-    //créetion de la liste d'erreurs
+    //création de la liste d'erreurs
     $erreurs = [];
 
     if (empty($nom)) { $erreurs[] = "Le nom est obligatoire.";}
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { $erreurs[] = "Votre adresse doit être valide."; }
-    if (empty($tel)) { $erreurs[] = "Le numéro de téléphone est obligatoire.";}
     if (empty($dest)) { $erreurs[] = "La destination est obligatoire.";}
     if ($nb < 1) { $erreurs[] = "Le nombre de voyageurs doit être d'au moins 1.";}
     if (empty($date)) { $erreurs[] = "La date est obligatoire.";}
+
+    //Nettoyage et validation du numéro de téléphone
+    $tel = preg_replace('/[\s.\-()]/', '', $tel);
+    if(strpos($tel, '00') === 0) {
+        $tel = '+' . substr($tel, 2);
+    }
+    if(!preg_match('/^\+?[0-9]{8,15}$/', $tel)) {
+        $erreurs[] ="Le numéro de téléphone n'est pas valide.";
+    }elseif (strpos($tel, '+237') === 0 && !preg_match('/^\+237[26][0-9]{8}$', $tel)) {
+        $erreurs[] = "Le numéro Camerounais n'est pas valide (9 chiffres comment par 6 ou 2).";
+    }
 
     //si la liste contient quelque choses afficher
     if (!empty($erreurs)) {

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (empty($_SESSION['admin'])) {
+    header('Location: login.php');
+    exit;
+}
 $pdo = new PDO("mysql:host=localhost;dbname=tourisme;charset=utf8mb4", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -28,12 +33,15 @@ function e($valeur)
 
 <body class="admin-page">
 
-    <div class="admin-bar">
-        <div class="logo">Nova <span>Techn.</span></div>
-        <a href="index.html" class="btn">Retour au site</a>
-    </div>
+    <header class="admin-bar">
+        <div class="logo">N<span>K.</span></div>
+        <div>
+            <a href="index.html" class="btn">Retour au site</a>
+            <a href="logout.php" class="btn">Déconnexion</a>
+        </div>
+    </header>
 
-    <main class="admin-main">
+    <section class="admin-main">
         <h1 class="admin-title">Réservations <span>reçues</span></h1>
         <p class="admin-subtitle">Toutes les demandes envoyées depuis le site.</p>
 
@@ -89,7 +97,7 @@ function e($valeur)
             </div>
 
         <?php endif; ?>
-    </main>
+    </section>
 
 </body>
 
