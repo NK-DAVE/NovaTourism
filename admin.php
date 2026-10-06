@@ -99,6 +99,12 @@ function e($valeur)
         <?php endif; ?>
     </section>
 
+    <footer>
+        <div class="logo">
+            <p>N<span>K.</span></p>
+        </div>
+        <p class="right-footer">Tout droits réservés <span>&copy;2026</span></p>
+    </footer>
 </body>
 
 </html>

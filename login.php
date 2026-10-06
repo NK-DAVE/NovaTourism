@@ -33,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body class="admin-page">
 
-    <div class="admin-bar">
+    <header class="admin-bar">
         <div class="logo">N<span>K.</span></div>
         <a href="index.html" class="btn">Retour au site</a>
-    </div>
+    </header>
 
     <main class="admin-main login">
         <h1 class="admin-title">Espace <span>admin</span></h1>
@@ -54,6 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn">Se connecter</button>
         </form>
     </main>
+
+    <footer>
+        <div class="logo">
+            <p>N<span>K.</span></p>
+        </div>
+        <p class="right-footer">Tout droits réservés <span>&copy;2026</span></p>
+    </footer>
 
 </body>
 
