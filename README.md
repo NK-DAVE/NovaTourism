@@ -43,3 +43,4 @@ Ce projet est mon premier site avec un back-end (PHP et MySQL), réliser pour ap
 - A récupérer les information renvoyer par le `PHP` grâce a l'URL en `JS`
 - Que les hébergeur gratuit comme vercel refuse le MySQL >_< et je dois donc m'orienter vers `Infinityfree` mais celui ci bloque par défaut `PHPMailer`pour les *email automatique que je prévois*
 - A la mise en page d'un fichier `README.md`
+- L'utilisation de `Git` et des principales commande `add, commit, push` et a travailler sur une branche
