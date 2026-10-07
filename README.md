@@ -23,7 +23,7 @@ Site de tourisme Camerounais avec réservation en ligne. *aller à la découvert
 ![Les différent lieu a visité](captures/destinations.jpg)
 ![les tarifs](captures/tarifs.jpg)
 ![Page de connexion au compte admin](captures/connexion.jpg)
-![Apercu de la page admin](captures/admin2.jpg)
+![Apercu de la page admin](captures/admin.png)
 ![Remplissage de données](captures/admin2.jpg)
 ---
 
