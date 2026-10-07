@@ -35,5 +35,11 @@ Site de tourisme Camerounais avec réservation en ligne. *aller à la découvert
 - Utilisation d'un `input` pour un abnnement au site
 
 ## Auteur
-**KONANG Demano Dave Nathan** - je suis élève de terminale C passionné de programmation et de découverte.
-Ce projet est mon premier site avec un back-end (PHP et MySQL), réliser pour apprendre à relier un formulaire à une base de données.
+**KONANG Demano Dave Nathan** alliace **NK-DAVE**- je suis élève de terminale C passionné de programmation, d'art et de découverte et ayant une forte volonté de mettre en avant les merveilles de son pays.
+---
+Ce projet est mon premier site avec un back-end (PHP et MySQL), réliser pour apprendre à relier un formulaire à une base de données. Grâce a celui ci j'ai appris:
+- A filtrer les données recu par le formulaire en `PHP`et les stocker puis les récuperer,
+- Créer une page admin et la sécuriser grace au `login.php`, puis réaliser la déonnexion grâce au fichier `logout`
+- A récupérer les information renvoyer par le `PHP` grâce a l'URL en `JS`
+- Que les hébergeur gratuit comme vercel refuse le MySQL >_< et je dois donc m'orienter vers `Infinityfree` mais celui ci bloque par défaut `PHPMailer`pour les *email automatique que je prévois*
+- A la mise en page d'un fichier `README.md`
