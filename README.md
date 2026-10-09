@@ -17,6 +17,7 @@ Site de tourisme Camerounais avec réservation en ligne. *aller à la découvert
 1. Cloner le projet dans le dossier `www` de WAMP
 2. Importer `database.sql`dans une base de donner vide nommer `tourisme`
 3. Ouvrir `localhost/Navotourism`
+4. Pour l'envoi d'email via Brevo, y crée un compte et coller les informations dan le `config_mail.example.php` après l'avoir renommé en `config_mail`
 
 ## Apercu en images
 ![Page d'acceuil](captures/acceuil.jpg)
