@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="logo">
             <p>N<span>K.</span></p>
         </div>

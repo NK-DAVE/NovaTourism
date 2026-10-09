@@ -616,7 +616,6 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: fixed;
   width: 100%;
   bottom: 0;
 }
@@ -800,6 +799,10 @@ footer .right-footer span {
   background-color: #fafafa;
   min-height: 100vh;
   color: var(--primaryColorText);
+}
+
+.admin-page .footer{
+  position: absolute;
 }
 
 .admin-page .admin-bar {
