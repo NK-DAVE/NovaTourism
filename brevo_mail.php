@@ -41,6 +41,10 @@ function envoyerConfirmation(string $email, string $nom, string $destination, st
     ];
 
     $ch = curl_init('https://api.brevo.com/v3/smtp/email');
+    $cacert = 'C:wamp64/cacert.pem';
+    if (file_exists($cacert)) {
+        curl_setopt($ch, CURLOPT_CAINFO, $cacert);
+    }
     curl_setopt_array($ch, [
         CURLOPT_POST           => true,
         CURLOPT_RETURNTRANSFER => true,
