@@ -436,5 +436,7 @@ if (resultat === 'ok') {
     bookingStatus.innerText = params.get('erreurs')
     bookingStatus.classList.add('sendError')
 }
-//Netoyage et redirection de l'URL après l'extraction des information
-history.replaceState(null, '', window.location.pathname + '#booking')
+if(resultat) {
+    //Netoyage et redirection de l'URL après l'extraction des information
+    history.replaceState(null, '', window.location.pathname)
+}
