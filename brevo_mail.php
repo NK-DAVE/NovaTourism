@@ -5,7 +5,16 @@
 
 function envoyerConfirmation(string $email, string $nom, string $destination, string $date, int $nb): bool
 {
-    require __DIR__ . '/config_mail.php'; // définit $BREVO_API_KEY, $MAIL_EXPEDITEUR, $MAIL_NOM
+    if(!function_exists('curl_init')) {
+        error_log('Brevo : cURL indisponible.');
+        return false;
+    }
+    $fichierConfig = __DIR__ . '/config_mail.php';
+    if(!file_exists($fichierConfig)) {
+        error_log('Brevo : config_mail.php introuvable.');
+        return false;
+    }
+    require $fichierConfig;
 
     // On protège les données du visiteur avant de les mettre dans le HTML de l'email
     $nomSur  = htmlspecialchars($nom, ENT_QUOTES, 'UTF-8');
