@@ -616,7 +616,6 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: fixed;
   width: 100%;
   bottom: 0;
 }
@@ -800,6 +799,10 @@ footer .right-footer span {
   background-color: #fafafa;
   min-height: 100vh;
   color: var(--primaryColorText);
+}
+
+.admin-page .footer{
+  position: absolute;
 }
 
 .admin-page .admin-bar {
@@ -1006,7 +1009,7 @@ footer .right-footer span {
   .btn-header .btn {
     width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   nav {
@@ -1070,7 +1073,8 @@ footer .right-footer span {
   }
 
   .input input {
-    flex: 1 1 220px;
+    flex: 1 1 50px;
+    margin-bottom: 10px;
   }
 
   .booking-form {
@@ -1185,6 +1189,7 @@ footer .right-footer span {
   .buttons {
     flex-direction: column;
     align-items: stretch;
+    gap: 20px;
   }
 
   .buttons > .btn,
@@ -1227,10 +1232,6 @@ footer .right-footer span {
     flex-direction: column;
   }
 
-  .input input {
-    width: 100%;
-  }
-
   #video-container {
     width: 94vw;
     height: 90vh;
@@ -1259,6 +1260,17 @@ footer .right-footer span {
     width: 100%;
   }
 
+  .input input  {
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .input .btn {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;  
+  }
+
   .booking-form {
     grid-template-columns: 1fr;
     padding: 18px;
@@ -1266,6 +1278,12 @@ footer .right-footer span {
 
   .form-field-wide {
     grid-column: auto;
+  }
+
+  .email-trip .together .text {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
   }
 }
 
