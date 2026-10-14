@@ -18,6 +18,7 @@ Site de tourisme Camerounais avec réservation en ligne. *aller à la découvert
 2. Importer `database.sql`dans une base de donner vide nommer `tourisme`
 3. Ouvrir `localhost/Navotourism`
 4. Pour l'envoi d'email via Brevo, y crée un compte et coller les informations dan le `config_mail.example.php` après l'avoir renommé en `config_mail`
+5. Copier le fichier `config_mail.example.php` en `config_mail.php` et remplir
 
 ## Apercu en images
 ![Page d'acceuil](captures/acceuil.jpg)

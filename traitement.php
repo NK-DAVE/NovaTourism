@@ -8,7 +8,8 @@ require 'brevo_mail.php';
 
 try {
     //Connexion
-    $pdo = new PDO("mysql:host=localhost;dbname=tourisme;charset=utf8mb4", "root", "");
+    require __DIR__ . '/config_db.php';
+    $pdo = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4", $DB_USER, $DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
