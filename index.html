@@ -431,7 +431,7 @@
             </div>
             <div class="form-field">
                 <label for="booking-destination">Destination</label>
-                <select id="booking-destination" name="destination" required>
+                <select id="booking-destination" name="destination" class="input-style" required>
                     <option value="">Choisissez une destination</option>
                     <option>Monument de Bastos</option>
                     <option>Savane de Maroua</option>
@@ -449,7 +449,7 @@
             </div>
             <div class="form-field">
                 <label for="booking-date">Date souhaitée</label>
-                <input type="date" id="booking-date" name="date" required>
+                <input type="date" id="booking-date" name="date" class="input-style" required>
             </div>
             <div class="form-field">
                 <label for="booking-travelers">Nombre de voyageurs</label>
@@ -461,7 +461,6 @@
             </div>
             <div class="form-field-wide">
                 <button class="btn booking-submit" type="submit">Envoyer ma demande</button>
-                <p class="booking-status" id="booking-status" role="status" aria-live="polite"></p>
             </div>
         </form>
     </section>
@@ -500,6 +499,8 @@
         </div>
         <p class="right-footer">Tout droits réservés <span>&copy;2026</span></p>
     </footer>
+
+    <div id="toast-container" role="status" aria-live="polite"></div>
 </body>
 
 </html>

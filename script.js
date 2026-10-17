@@ -193,6 +193,10 @@ class Carousel {
         let prevButton = this.CreateDivWithClass('carousel__prev')
         this.root.appendChild(nextButton)
         this.root.appendChild(prevButton)
+        //Déclenchement au survol de la souris
+        nextButton.addEventListener('mouseenter', this.next.bind(this))
+        prevButton.addEventListener('mouseenter', this.prev.bind(this))
+        //Déclenchement au clic
         nextButton.addEventListener('click', this.next.bind(this))
         prevButton.addEventListener('click', this.prev.bind(this))
         if (this.options.loop === true) {
@@ -424,19 +428,41 @@ document.querySelectorAll('.button-description button').forEach(button => {
     })
 })
 
-const params = new URLSearchParams(window.location.search)
-const resultat = params.get('reservation')
-if (resultat === 'ok') {
-    bookingStatus.classList.add('send')
-    bookingStatus.innerText = 'Merci ! Votre demande a bien été enregistrée, nous vous contacterons rapidement.'
-}else if(resultat === 'erreur'){
-    bookingStatus.innerText = 'Une erreur est survenue, merci de réessayer plus tard.'
-    bookingStatus.classList.add('sendError')
-}else if(resultat ==='invalide') {
-    bookingStatus.innerText = params.get('erreurs')
-    bookingStatus.classList.add('sendError')
+const form = document.getElementById('booking-form')
+const submitBtn = form.querySelector('.booking-submit')
+
+function showToast(message, type = 'success') {
+  const toast = document.createElement('div')
+  toast.className = 'toast ' + type
+  toast.textContent = message
+  document.getElementById('toast-container').appendChild(toast)
+  setTimeout(() => toast.remove(), 4000)
 }
-if(resultat) {
-    //Netoyage et redirection de l'URL après l'extraction des information
-    history.replaceState(null, '', window.location.pathname)
-}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault()                       // empêche le rechargement
+  const texteOriginal = submitBtn.textContent
+  submitBtn.disabled = true                // bloque le re-clic
+  submitBtn.textContent = 'Envoi en cours…'
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    const data = await response.json()
+
+    if (data.succes) {
+      showToast(data.message, 'success')
+      form.reset()                         // on vide nous-mêmes
+    } else {
+      const detail = data.erreurs?.length ? data.erreurs.join(' ') : data.message
+      showToast(detail, 'error')
+    }
+  } catch (err) {
+    showToast('Connexion impossible. Vérifiez votre réseau et réessayez.', 'error')
+  } finally {
+    submitBtn.disabled = false
+    submitBtn.textContent = texteOriginal
+  }
+})
