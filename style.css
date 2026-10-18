@@ -469,6 +469,7 @@ button:active {
   background-color: var(--primaryColor);
   border-radius: 16px;
   box-shadow: var(--shadowDiv);
+  align-items: center;
 }
 
 .form-field {
