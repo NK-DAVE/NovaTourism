@@ -1,6 +1,7 @@
 :root {
   --primaryColor: #fff;
-  /* --secondColor: #f6D238; */
+  --primaryColor-transparent: #888787;
+  --primaryColor-transparent-header: #ffffff18;
   --secondColor: #f8e050;
   --primaryColorText: #535353;
   --color-value: #252525;
@@ -29,7 +30,7 @@ body {
 
 header {
   width: 100%;
-  padding: 15px 5%;
+  padding: 10px 5%;
   height: 65px;
   z-index: 14;
   position: fixed;
@@ -40,6 +41,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.menu {
+  display: contents;
 }
 
 a {
@@ -55,10 +60,6 @@ section {
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
-}
-
-.logo-div {
-  width: 30%;
 }
 
 .logo span {
@@ -77,6 +78,10 @@ section {
   justify-content: center;
   gap: 8px;
   background-color: var(--primaryColor);
+}
+
+p {
+  text-align: center;
 }
 
 a {
@@ -104,18 +109,6 @@ a.active {
 
 a.active:hover {
   color: var(--primaryColor);
-}
-
-.nav_mobile {
-  display: none;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .btn-header {
@@ -177,7 +170,7 @@ button:active {
 }
 
 .home-section .left-image-1 {
-  width: 34vw;
+  width: 40vw;
   height: 400px;
   top: 60px;
 }
@@ -190,7 +183,7 @@ button:active {
   transition: 0.3s;
 }
 .home-section .left-image-2 {
-  width: 30vw;
+  width: 38vw;
   height: 250px;
   top: 290px;
   left: 120px;
@@ -201,7 +194,7 @@ button:active {
 }
 
 .right {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -221,9 +214,8 @@ button:active {
 }
 
 .right p {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: var(--primaryColorText);
-  width: 80%;
   font-size: 1rem;
 }
 
@@ -524,8 +516,7 @@ button:active {
 }
 
 .form-field option {
-  background-color: var(--secondColor);
-  color: var(--primaryColor);
+  color: var(--primaryColorText);
 }
 
 .booking-submit {
@@ -1040,62 +1031,48 @@ footer .right-footer span {
   cursor: not-allowed;
 }
 
-@media (max-width: 900px) {
-  header {
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-  }
-
+@media screen and (max-width: 900px) {
   section {
-    padding: 120px 5%;
+    padding: 100px 5%;
   }
 
-  .logo-div,
-  .nav,
-  .btn-header .btn {
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
+  header {
+    box-shadow: var(--shadowDiv);
+    background: none;
+    background: var(--primaryColor-transparent-header);
   }
-
-  nav {
-    width: 100%;
-  }
-
   .nav {
-    flex-wrap: wrap;
+    background: none;
   }
 
-  .home-section-top {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
+  #deploy .fig {
+    background: var(--primaryColor-transparent);
+  }
+
+  header .nav a {
+    border-color: transparent;
+    color: var(--primaryColor)
+  }
+
+  .home-section {
+    background: 
+      linear-gradient(to top, var(--primaryColor) 45%,
+       transparent 70%),
+      url(Asset/images/Icon1-nop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    min-height: 100vh;
   }
 
   .home-section .left {
-    width: 100%;
-    right: 0;
-    padding-top: 50%;
-  }
-
-  .home-section .left-image-1 {
-    width: 70%;
-    height: 350px;
-    top: -15px;
-  }
-
-  .home-section .left-image-2 {
-    width: 68%;
-    height: 220px;
-    left: 100px;
-    top: 150px;
+    display: none;
   }
 
   .right {
     width: 100%;
     align-items: flex-start;
+    text-align: center;
   }
 
   .buttons {
@@ -1128,31 +1105,145 @@ footer .right-footer span {
   .booking-form {
     padding: 22px;
   }
+
+  .right p {
+    width: 100%;
+  }
+
+
 }
 
 @media screen and (max-width: 800px) {
   header {
+    height: auto;
     flex-direction: row;
+    justify-content: space-between;
     border-radius: 0;
-    padding: 10px;
+    padding: 10px 5%;
   }
 
-  nav {
-    display: none;
+  .logo-div {
+    width: auto;
+  }
+
+  /* --- Bouton burger --- */
+  #deploy {
+    display: flex;
+    position: relative;
+    z-index: 999;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  #deploy .fig {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--primaryColor-transparent);
+    transition:
+      transform 0.3s ease,
+      opacity 0.2s ease,
+      background-color 0.3s ease;
+  }
+
+  #deploy:hover .fig {
+    background-color: var(--secondColor);
+  }
+
+  /* --- Burger devient croix --- */
+  #deploy.open .fig:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  #deploy.open .fig:nth-child(2) {
+    opacity: 0;
+  }
+  #deploy.open .fig:nth-child(3) {
+    transform: translateY(-16px) rotate(-45deg);
+  }
+
+  .menu {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding: 90px 8% 40px;
+    background-color: var(--primaryColor);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s;
+  }
+
+  .menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .menu.open .nav a {
+    color: var(--color-value);
+  }
+
+  /* --- Contenu du volet --- */
+  .nav {
+    flex: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav a {
+    padding: 16px;
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 14px;
+  }
+
+  .btn-header {
+    flex: none;
+    justify-content: center;
+  }
+
+  .btn-header .btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .logo-div {
+    width: auto;
   }
 
   #deploy {
     display: flex;
+    position: relative;
+    z-index: 999;
     width: 50px;
     height: 50px;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 15%;
     padding: 10px;
     cursor: pointer;
     border: none;
-    background-color: var(--primaryColor);
   }
 
   #deploy:hover .fig {
@@ -1163,17 +1254,17 @@ footer .right-footer span {
     width: 100%;
     height: 15%;
     box-shadow: var(--shadowDiv);
-    background-color: var(--primaryColorText);
   }
 
-  .nav_mobile {
+  .menu {
+    display: none;
+  }
+
+  .menu.open {
     display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 103vh;
-    z-index: 16;
+    position: fixed;
+    inset: 0;
+    z-index: 998;
     padding-bottom: 5vh;
     background-color: var(--primaryColor);
     flex-direction: column;
@@ -1184,14 +1275,12 @@ footer .right-footer span {
   .nav {
     flex-direction: column;
     gap: 20px;
-    height: 80vh;
     width: 100%;
   }
 
   .nav a,
   .btn-header .btn {
     width: 100%;
-    height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1213,11 +1302,11 @@ footer .right-footer span {
 
 @media (max-width: 600px) {
   section {
-    padding: 60px 5%;
+    padding: 100px 5%;
   }
 
   .logo {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .nav {
@@ -1225,8 +1314,8 @@ footer .right-footer span {
   }
 
   .nav a {
-    padding: 8px 10px;
-    font-size: 0.85rem;
+    padding: 15px 10px;
+    font-size: 1rem;
   }
 
   .btn {
@@ -1333,6 +1422,8 @@ footer .right-footer span {
     width: 100%;
     padding-bottom: 10px;
   }
+
+
 }
 
 @media (max-width: 900px) {

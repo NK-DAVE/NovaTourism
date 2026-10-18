@@ -401,20 +401,21 @@ detail.addEventListener('click', (e) => {
 
 /*******************************************GESTION DU MENU SUR MOBILE ****************************************/
 const deploy = document.getElementById('deploy')
-const nav = document.querySelector('nav')
+const menu = document.getElementById('menu')
 
 deploy.addEventListener('click', () => {
-    nav.classList.toggle('nav_mobile')
-    console.log(nav.classList)
+    const isOpen = menu.classList.toggle('open')
+    deploy.classList.toggle('open', isOpen)
 })
 
-
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function () {
-        nav.classList.remove('nav_mobile')
+document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('open')
+        deploy.classList.remove('open')
     })
 })
 
+/***************************************TRAITEMENT DU FORMULAIRE*************************************/
 const bookingSection = document.getElementById('booking')
 const bookingDestination = document.getElementById('booking-destination')
 const bookingForm = document.getElementById('booking-form')

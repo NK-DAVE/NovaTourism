@@ -36,7 +36,7 @@ function e($valeur)
 <body class="admin-page">
 
     <header class="admin-bar">
-        <div class="logo">N<span>K.</span></div>
+        <strong>N<span>K.</span></strong>
         <div>
             <a href="index.html" class="btn">Retour au site</a>
             <a href="logout.php" class="btn">Déconnexion</a>
