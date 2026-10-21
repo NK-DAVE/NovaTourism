@@ -60,6 +60,7 @@ section {
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .logo span {
@@ -204,6 +205,7 @@ button:active {
 .right .text-right {
   color: var(--secondColor);
   font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .right h1 {
@@ -211,6 +213,7 @@ button:active {
   font-size: 2.2rem;
   font-weight: bold;
   line-height: 50px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .right p {
@@ -428,6 +431,7 @@ button:active {
   color: var(--secondColor);
   margin-top: 5px;
   font-weight: bold;
+  text-align: left;
 }
 
 .box-list .box .description .button-description {
@@ -548,6 +552,7 @@ button:active {
 .title {
   text-align: center;
   font-size: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .best-trip .small-desc {
@@ -995,6 +1000,10 @@ footer .right-footer span {
   color: var(--color-value);
 }
 
+h3 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 #toast-container {
   position: fixed;
   top: 20px;
@@ -1076,12 +1085,20 @@ footer .right-footer span {
     text-align: center;
   }
 
+  .right>div>p{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
   .buttons {
     flex-wrap: wrap;
   }
 
   .destinations .small-desc {
     width: 100%;
+  }
+
+  p.para-desc {
+    color: var(--color-value);
   }
 
   .box-list .box .description {
