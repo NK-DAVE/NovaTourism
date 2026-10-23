@@ -1,13 +1,29 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: index.html');
+header('Content-Type: application/json; charset=utf-8');
+
+// Petite fonction : envoie la réponse JSON puis arrête le script
+function repondre(bool $succes, string $message, int $code = 200, array $erreurs = []): void {
+    http_response_code($code);
+    echo json_encode([
+        'succes'  => $succes,
+        'message' => $message,
+        'erreurs' => $erreurs
+    ], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    repondre(false, 'Méthode non autorisée.', 405);
+}
+
+require 'brevo_mail.php';
+
 try {
     //Connexion
-    $pdo = new PDO("mysql:host=localhost;dbname=tourisme;charset=utf8mb4", "root", "");
+    require __DIR__ . '/config_db.php';
+    $pdo = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4", $DB_USER, $DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
     $sql = "INSERT INTO reservations
     (nom_complet, email, telephone, destination, date_souhaitee, nb_voyageurs, message)
@@ -44,9 +60,7 @@ try {
 
     //si la liste contient quelque choses afficher
     if (!empty($erreurs)) {
-        $message = urlEncode(implode(' ', $erreurs));
-        header('Location: index.html?reservation=invalide&erreurs=' . $message . '#booking');
-        exit;
+        repondre(false, 'Veuillez corriger le formulaire.', 422, $erreurs);
     }
     
     $stmt = $pdo->prepare($sql);
@@ -60,10 +74,15 @@ try {
         ':msg' => $msg
     ]);
 
-    header('Location: index.html?reservation=ok#booking');
-    exit;
-} catch (PDOException $e) {
+    try {
+        envoyerConfirmation($email, $nom, $dest, $date, $nb);
+    } catch (Throwable $e) {
+        error_log('Brevo : ' . $e->getMessage());
+    }
+
+    repondre(true, 'Votre demande a bien été enregistrée !');
+
+} catch (Throwable $e) {
     error_log($e->getMessage());
-    header('Location: index.html?reservation=erreur#booking');
-    exit;
+    repondre(false, "Une erreur est survenue, réessayez plus tard.", 500);
 }
